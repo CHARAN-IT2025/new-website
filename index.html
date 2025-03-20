@@ -38,7 +38,7 @@
         <p><a href="https://www.linkedin.com/in/charan-chada-b687b22b5" target="_blank">LinkedIn Profile</a></p>
 
         <h2>Contact Me</h2>
-        <form id="contactForm">
+        <form action="https://formspree.io/f/your_formspree_id" method="POST">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
 
@@ -48,8 +48,12 @@
             <label for="message">Message:</label><br>
             <textarea id="message" name="message" rows="4" required></textarea><br><br>
 
+            <input type="hidden" name="_subject" value="New Contact Form Submission">
+
             <input type="submit" value="Send Message">
         </form>
+
+        <img src="image/image.jpg" alt="Contact Image" class="contact-image">
     </section>
 
     <footer></footer>
