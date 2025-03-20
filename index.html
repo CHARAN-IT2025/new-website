@@ -5,55 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charan Reddy Chada - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    
-
 </head>
 <body>
-    <header><i>My protofolio </i>
-        </header>
+    <header><i>My Portfolio</i></header>
 
     <section id="about">
-
-        <h1>About me </h1>
-
-        "I am a seasoned DevOps Engineer with 10 years of experience, 
-        specializing in cloud platforms like GCP, AWS, and Azure. 
-        My expertise includes CI/CD automation, infrastructure as code (Terraform, CloudFormation),
-        container orchestration with Kubernetes, and configuration management using Ansible, Chef, and Puppet
-        I have strong hands-on experience in monitoring with Grafana, Prometheus, and ELK Stack. 
-        Additionally, I have worked on cloud migrations, security best practices, and 
-        optimizing system performance. Currently, I am seeking a contract C2C role
-         where I can leverage my skills in cloud automation, Kubernetes, 
-         and DevOps to drive efficiency and scalability."
-        </section>
+        <h1>About Me</h1>
+        <p>
+            I am a seasoned DevOps Engineer with 10 years of experience, specializing in cloud platforms like GCP, AWS, and Azure. 
+            My expertise includes CI/CD automation, infrastructure as code (Terraform, CloudFormation), container orchestration with Kubernetes, 
+            and configuration management using Ansible, Chef, and Puppet. I have strong hands-on experience in monitoring with Grafana, Prometheus, and ELK Stack. 
+            Additionally, I have worked on cloud migrations, security best practices, and optimizing system performance. Currently, I am seeking a contract C2C role where I can leverage my skills in cloud automation, Kubernetes, and DevOps to drive efficiency and scalability.
+        </p>
+    </section>
 
     <section id="projects">
-
         <h2>Projects</h2>
-        1.Kubernetes-Based Microservices Deployment on GCP
-        2.VMware to OpenShift Migration
-        3.Multi-Cloud Infrastructure Automation (AWS, GCP, Azure)
-        4.CI/CD Pipeline for Java Applications with Blue-Green Deployment
-        5.Centralized Logging and Monitoring with ELK & Prometheus
-        </section>
+        <ol>
+            <li>Kubernetes-Based Microservices Deployment on GCP</li>
+            <li>VMware to OpenShift Migration</li>
+            <li>Multi-Cloud Infrastructure Automation (AWS, GCP, Azure)</li>
+            <li>CI/CD Pipeline for Java Applications with Blue-Green Deployment</li>
+            <li>Centralized Logging and Monitoring with ELK & Prometheus</li>
+        </ol>
+    </section>
 
     <section id="contact">
-
         <h3>Contact</h3>
+        <p>Name: Charan Chada</p>
+        <p>Contact: 502 509 2719</p>
+        <p>Email: <a href="mailto:charanreddy.devops16@gmail.com">charanreddy.devops16@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/charan-chada-b687b22b5" target="_blank">LinkedIn Profile</a></p>
 
-        Name: Charan Chada
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
 
-        Contact: 502 509 2719
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
 
-        Email: charanreddy.devops16@gmail.com
-        
-        <a href="URL"> www.linkedin.com/in/charan-chada-b687b22b5
-        </a>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
 
-        </section>
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
 
-    <footer>
-        </footer>
+    <footer></footer>
 
-    <script src="script.js"></script> </body>
-</html>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message!');
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+</body>
+</html> 
