@@ -52,19 +52,16 @@ section#projects h2 {
     padding-bottom: 5px;
 }
 
-section#projects ul {
-    list-style: none;
-    padding: 0;
-}
-
-section#projects li {
-    padding: 5px 0;
-    font-size: 18px;
+section#projects ol { /* Updated to ol */
+    list-style-type: decimal;
+    padding-left: 20px;
 }
 
 /* Contact Section */
 section#contact {
     background-color: #fce4ec;
+    position: relative; /* Needed for relative positioning of the image */
+    overflow: auto; /* needed to fix some potential layout issues*/
 }
 
 section#contact a {
@@ -112,3 +109,41 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* Contact Form Styling */
+#contactForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#contactForm input[type="submit"] {
+    background-color: #005f73;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contactForm input[type="submit"]:hover {
+    background-color: #004252;
+}
+
+/* Contact Image Styling */
+.contact-image {
+    float: right;
+    width: 200px;
+    height: auto;
+    margin-top: -200px; /* Adjust as needed */
+} 
