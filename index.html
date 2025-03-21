@@ -3,67 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charan Reddy Chada - Portfolio</title>
+    <title>College Student Details</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><i>My Portfolio</i></header>
+    <header>College Student Details</header>
 
-    <section id="about">
-        <h1>About Me</h1>
-        <p>
-            I am a seasoned DevOps Engineer with 10 years of experience, specializing in cloud platforms like GCP, AWS, and Azure. 
-            My expertise includes CI/CD automation, infrastructure as code (Terraform, CloudFormation), container orchestration with Kubernetes, 
-            and configuration management using Ansible, Chef, and Puppet. I have strong hands-on experience in monitoring with Grafana, Prometheus, and ELK Stack. 
-            Additionally, I have worked on cloud migrations, security best practices, and optimizing system performance. Currently, I am seeking a contract C2C role where I can leverage my skills in cloud automation, Kubernetes, and DevOps to drive efficiency and scalability.
-        </p>
+    <section>
+        <h2>Student Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>John Doe</td>
+                    <td>Computer Science</td>
+                    <td>johndoe@example.com</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Jane Smith</td>
+                    <td>Electrical Engineering</td>
+                    <td>janesmith@example.com</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ol>
-            <li>Kubernetes-Based Microservices Deployment on GCP</li>
-            <li>VMware to OpenShift Migration</li>
-            <li>Multi-Cloud Infrastructure Automation (AWS, GCP, Azure)</li>
-            <li>CI/CD Pipeline for Java Applications with Blue-Green Deployment</li>
-            <li>Centralized Logging and Monitoring with ELK & Prometheus</li>
-        </ol>
-    </section>
-
-    <section id="contact">
-        <h3>Contact</h3>
-        <p>Name: Charan Chada</p>
-        <p>Contact: 502 509 2719</p>
-        <p>Email: <a href="mailto:charanreddy.devops16@gmail.com">charanreddy.devops16@gmail.com</a></p>
-        <p><a href="https://www.linkedin.com/in/charan-chada-b687b22b5" target="_blank">LinkedIn Profile</a></p>
-
-        <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/your_formspree_id" method="POST">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="4" required></textarea><br><br>
-
-            <input type="hidden" name="_subject" value="New Contact Form Submission">
-
-            <input type="submit" value="Send Message">
-        </form>
-
-        <img src="image/image.jpg" alt="Contact Image" class="contact-image">
-    </section>
-
-    <footer></footer>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Thank you for your message!');
-            document.getElementById('contactForm').reset();
-        });
-    </script>
+    <footer>© 2025 College Name</footer>
 </body>
-</html> 
+</html>
