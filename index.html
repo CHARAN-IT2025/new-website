@@ -3,40 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Student Details</title>
+    <title>Student Management</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>College Student Details</header>
+    <h2>Student Management</h2>
 
-    <section>
-        <h2>Student Information</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Student ID</th>
-                    <th>Name</th>
-                    <th>Course</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>Computer Science</td>
-                    <td>johndoe@example.com</td>
-                </tr>
-                <tr>
-                    <td>102</td>
-                    <td>Jane Smith</td>
-                    <td>Electrical Engineering</td>
-                    <td>janesmith@example.com</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <!-- Add Student Form -->
+    <form id="studentForm">
+        <input type="text" id="studentId" placeholder="Student ID" required>
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="text" id="course" placeholder="Course" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Add Student</button>
+    </form>
 
-    <footer>© 2025 College Name</footer>
+    <!-- Student Table -->
+    <h3>Student List</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+            <!-- Data will be inserted dynamically here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const studentsCollection = db.collection("students");
+
+        // Add Student Form Submission
+        document.getElementById('studentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const studentId = document.getElementById('studentId').value;
+            const name = document.getElementById('name').value;
+            const course = document.getElementById('course').value;
+            const email = document.getElementById('email').value;
+
+            await studentsCollection.doc(studentId).set({
+                studentId, name, course, email
+            });
+
+            alert('Student added successfully!');
+            document.getElementById('studentForm').reset();
+        });
+
+        // Fetch & Display Students in Table Dynamically
+        function loadStudents() {
+            studentsCollection.onSnapshot((snapshot) => {
+                const tableBody = document.getElementById('studentTableBody');
+                tableBody.innerHTML = ""; // Clear table before reloading
+
+                snapshot.forEach((doc) => {
+                    const student = doc.data();
+                    const row = `<tr>
+                        <td>${student.studentId}</td>
+                        <td>${student.name}</td>
+                        <td>${student.course}</td>
+                        <td>${student.email}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            });
+        }
+
+        // Load students on page load
+        loadStudents();
+    </script>
 </body>
 </html>
