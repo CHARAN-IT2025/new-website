@@ -59,8 +59,11 @@
             const course = document.getElementById('course').value;
             const email = document.getElementById('email').value;
 
-            await studentsCollection.doc(studentId).set({
-                studentId, name, course, email
+            await studentsCollection.add({
+                studentId, 
+                name, 
+                course, 
+                email
             });
 
             alert('Student added successfully!');
